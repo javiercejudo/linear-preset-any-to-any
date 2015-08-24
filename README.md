@@ -13,9 +13,11 @@ Generate linear presets for any to any conversions
 ## Usage
 
 ```js
-var anyToAny = require('linear-preset-any-to-any')(require('floating-adapter'));
+var Decimal = require('linear-arbitrary-precision')(require('floating-adapter'));
+var anyToAny = require('linear-preset-any-to-any')(Decimal);
 var temp = require('linear-presets-temperature');
 
+// all numbers are Decimal
 anyToAny(temp, 'kelvin', 'fahrenheit');  // => [[273.15, 373.15], [32, 212]]
 anyToAny(temp, 'celsius', 'fahrenheit'); // => [[0, 100], [32, 212]]
 anyToAny(temp, 'fahrenheit', 'celsius'); // => [[32, 212], [0, 100]]
