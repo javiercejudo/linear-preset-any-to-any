@@ -4,23 +4,25 @@
 
 var lcFactory = require('linear-converter');
 
-module.exports = function anyToAnyFactory(adapter) {
-  var lc = lcFactory(adapter);
+var identityPreset = [[0, 1], [0, 1]];
+
+module.exports = function anyToAnyFactory(Decimal) {
+  var lc = lcFactory(Decimal);
 
   return function anyToAny(data, fromUnit, destUnit) {
     var conversions = data.conversions;
+    var fromUnitToBase = identityPreset;
+    var fromBaseToDestUnit = identityPreset;
 
     if (data.base === fromUnit) {
-      return conversions[destUnit];
+      fromBaseToDestUnit = conversions[destUnit];
+    } else if (data.base === destUnit) {
+      fromUnitToBase = lc.invertPreset(conversions[fromUnit]);
+    } else {
+      fromUnitToBase = lc.invertPreset(conversions[fromUnit]);
+      fromBaseToDestUnit = conversions[destUnit];
     }
 
-    if (data.base === destUnit) {
-      return lc.invertPreset(conversions[fromUnit]);
-    }
-
-    var fromUnitToBase = lc.invertPreset(conversions[fromUnit]);
-    var fromBaseToDestUnit = conversions[destUnit];
-
-    return lc.composePresets([fromUnitToBase, fromBaseToDestUnit]);
+    return lc.composePresets(fromUnitToBase, fromBaseToDestUnit);
   };
 };
