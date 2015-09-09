@@ -3,8 +3,7 @@
 'use strict';
 
 var lcFactory = require('linear-converter');
-
-var identityPreset = [[0, 1], [0, 1]];
+var identityPreset = require('unit-preset');
 
 module.exports = function anyToAnyFactory(Decimal) {
   var lc = lcFactory(Decimal);
