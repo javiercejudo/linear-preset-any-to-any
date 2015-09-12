@@ -7,12 +7,10 @@ require('should');
 var adapter = require('floating-adapter');
 var Decimal = require('linear-arbitrary-precision')(adapter);
 var anyToAny = require('../src/linear-preset-any-to-any')(Decimal);
-var temp = require('linear-presets-temperature');
+var temp = require('linear-presets-temperature').conversions;
 
 function scaleVals(scale) {
-  return scale.map(function(x) {
-    return x.val().val();
-  })
+  return scale.map(Number)
 }
 
 describe('convert units any to any', function() {
