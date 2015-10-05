@@ -8,8 +8,8 @@ module.exports = function anyToAnyFactory(Decimal) {
   var lc = lcFactory(Decimal);
 
   return function anyToAny(conversions, fromUnit, destUnit) {
-    return lc.composePresets(
-      lc.invertPreset(conversions[fromUnit]),
+    return lc.composeConversions(
+      lc.invertConversion(conversions[fromUnit]),
       conversions[destUnit]
     );
   };
