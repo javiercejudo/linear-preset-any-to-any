@@ -21,17 +21,17 @@
   },
   "homepage": "https://github.com/javiercejudo/linear-preset-any-to-any",
   "devDependencies": {
-    "floating-adapter": "1.2.0",
-    "gulp": "3.9.0",
-    "gulp-coveralls": "0.1.4",
-    "gulp-istanbul": "0.10.2",
-    "gulp-mocha": "2.1.3",
-    "linear-arbitrary-precision": "3.1.0",
-    "linear-presets-temperature": "2.0.3",
-    "rimraf": "2.4.3",
-    "should": "7.1.1"
+    "floating-adapter": "^1.2.1",
+    "gulp": "^3.9.0",
+    "gulp-coveralls": "^0.1.4",
+    "gulp-istanbul": "^0.10.2",
+    "gulp-mocha": "^2.1.3",
+    "linear-arbitrary-precision": "^3.1.0",
+    "linear-presets-temperature": "^2.0.3",
+    "rimraf": "^2.4.3",
+    "should": "^7.1.1"
   },
   "dependencies": {
-    "linear-converter": "7.0.2"
+    "linear-converter": "^7.0.2"
   }
 }
