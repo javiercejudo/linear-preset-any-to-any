@@ -1,6 +1,6 @@
 {
   "name": "linear-preset-any-to-any",
-  "version": "3.0.2",
+  "version": "3.0.3",
   "description": "Generate linear presets for any to any conversions",
   "main": "src/linear-preset-any-to-any.js",
   "scripts": {
